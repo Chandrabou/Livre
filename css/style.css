@@ -1,22 +1,42 @@
+html, body, .grid-container { 
+    height: 100%; 
+    margin: 0;
+    background-image: url("../images/paper.jpg");
+}
+
 .grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 0.7fr 1.3fr;
-    grid-template-rows: 0.8fr 1.1fr 1.1fr;
-    gap: 1px 1px;
-    grid-template-areas:
-      "Joueur Joueur PV Inventaire"
-      "Description Description Description Choix1"
-      "Description Description Description Choix2";
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.7fr 1.3fr;
+  grid-template-rows: 0.8fr 1.1fr 1.1fr;
+  gap: 1px 1px;
+  grid-template-areas:
+    "Joueur Joueur PV Inventaire"
+    "Description Description Description Choix1"
+    "Description Description Description Choix2";
+}
+
+.Description { grid-area: Description; }
+
+.Joueur { grid-area: Joueur; }
+
+.Choix1 { grid-area: Choix1; }
+
+.Choix2 { grid-area: Choix2; }
+
+.Inventaire { grid-area: Inventaire; }
+
+.PV { grid-area: PV; }
+
+
+/* For presentation only, no need to copy the code below */
+.grid-container * {
+  border: 1px solid black;
+  position: relative;
   }
-  
-  .Description { grid-area: Description; }
-  
-  .Joueur { grid-area: Joueur; }
-  
-  .Choix1 { grid-area: Choix1; }
-  
-  .Choix2 { grid-area: Choix2; }
-  
-  .Inventaire { grid-area: Inventaire; }
-  
-  .PV { grid-area: PV; }
+
+.grid-container *:after {
+  content:attr(class);
+  position: absolute;
+  top: 0;
+  left: 0;
+  }
